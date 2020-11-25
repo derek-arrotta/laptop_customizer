@@ -40,6 +40,7 @@ class App extends Component {
   updateFeature = (feature, newValue) => {
     const selected = Object.assign({}, this.props.selected);
     selected[feature] = newValue;
+    //console.log(selected[feature]);
     this.setState({
       selected,
     });
