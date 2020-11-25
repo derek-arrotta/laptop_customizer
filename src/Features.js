@@ -8,7 +8,7 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
 
 class Features extends Component {
-  
+
   render() {
     //console.log(this.props.selected);
     //console.log(this.props.features);
@@ -24,7 +24,7 @@ class Features extends Component {
               className="feature__option"
               name={slugify(feature)}
               checked={item.name === this.props.selected[feature].name}
-              onChange={(e) => this.updateFeature(feature, item)}
+              onChange={this.props.updateFeature}
             />
             <label htmlFor={itemHash} className="feature__label">
               {item.name} ({USCurrencyFormat.format(item.cost)})

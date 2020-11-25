@@ -58,7 +58,8 @@ class App extends Component {
             <h2>Customize your laptop</h2>
             <Features
               features={this.props.features}
-              selected={this.state.selected} />
+              selected={this.state.selected}
+              onChange={(e) => this.updateFeature(feature, item)} />
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
