@@ -45,6 +45,7 @@ class App extends Component {
     });
   };
 
+//onChange={(e) => this.updateFeature(feature, item)}
   render() {
 
     // Main App Section (leave here)
@@ -59,7 +60,8 @@ class App extends Component {
             <Features
               features={this.props.features}
               selected={this.state.selected}
-              onChange={(e) => this.updateFeature(feature, item)} />
+              updateFeature={this.updateFeature}
+              item={newValue} />
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
