@@ -60,8 +60,7 @@ class App extends Component {
             <Features
               features={this.props.features}
               selected={this.state.selected}
-              updateFeature={this.updateFeature}
-              item={newValue} />
+              updateFeature={this.updateFeature} />
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
