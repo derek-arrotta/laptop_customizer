@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import CurrencyFormatter from './CurrencyFormatter';
 
-const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-});
+//const USCurrencyFormat = new Intl.NumberFormat('en-US', {
+//  style: 'currency',
+//  currency: 'USD',
+//});
 
 class Total extends Component {
   render() {
@@ -13,7 +14,7 @@ class Total extends Component {
     );
     return (
       <div>
-        {USCurrencyFormat.format(total)}
+        <CurrencyFormatter amount={total}/>
       </div>
     );
   }
