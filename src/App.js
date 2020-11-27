@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-// Normalizes string as a slug - a string that is safe to use
-// in both URLs and html attributes
-import './App.css';
+import Customize from './Customize';
 import Summary from './Summary';
-import Features from './Features';
-import Total from './Total';
+import './App.css';
 
 
 class App extends Component {
@@ -46,26 +43,8 @@ class App extends Component {
           <h1>ELF Computing | Laptops</h1>
         </header>
         <main>
-          <form className="main__form">
-            <h2>Customize your laptop</h2>
-            <Features
-              features={this.props.features}
-              selected={this.state.selected}
-              updateFeature={this.updateFeature} />
-          </form>
-          <section className="main__summary">
-            <h2>Your cart</h2>
-            <Summary
-              features={this.props.features} 
-              selected={this.state.selected} />
-            <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                <Total 
-                  selected={this.state.selected} />
-              </div>
-            </div>
-          </section>
+          <Customize features={this.props.features} selected={this.state.selected} updateFeature={this.updateFeature} />
+          <Summary selected={this.state.selected} />
         </main>
       </div>
     );

@@ -1,53 +1,23 @@
-import React, { Component } from 'react';
-import slugify from 'slugify';
-import CurrencyFormatter from './CurrencyFormatter';
+import React from 'react';
 
-//const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-//  style: 'currency',
-//  currency: 'USD',
-//});
-//({USCurrencyFormat.format(item.cost)})
-
-class Features extends Component {
-
+class Feature extends React.Component {
   render() {
-    const features = Object.keys(this.props.features).map((feature, idx) => {
-      const featureHash = feature + '-' + idx;
-      const options = this.props.features[feature].map((item) => {
-        const itemHash = slugify(JSON.stringify(item));
-        console.log(this.props.selected[feature]);
-        return (
-          <div key={itemHash} className="feature__item">
-            <input
-              type="radio"
-              id={itemHash}
-              className="feature__option"
-              name={slugify(feature)}
-              checked={item.name === this.props.selected[feature].name}
-              onChange={e => this.props.updateFeature(feature, item)} />
-            <label htmlFor={itemHash} className="feature__label">
-              {item.name} <CurrencyFormatter amount={item.cost}/>
-            </label>
-          </div>
-        );
-      });
-
-      return (
-        <fieldset className="feature" key={featureHash}>
-          <legend className="feature__name">
-            <h3>{feature}</h3>
-          </legend>
-          {options}
-        </fieldset>
-      );
-    });
     return (
-      <div>
-        {features}
+      <div key={this.props.itemHash} className="feature__item">
+        <input
+          type="radio"
+          id={this.props.itemHash}
+          className="feature__option"
+          name={this.props.inputName}
+          checked={this.props.checked}
+          onChange={this.props.onChange}
+        />
+        <label htmlFor={this.props.itemHash} className="feature__label">
+          {this.props.itemName} ({this.props.itemCost})
+        </label>
       </div>
     );
-    
   }
 }
 
-export default Features;
+export default Feature;
