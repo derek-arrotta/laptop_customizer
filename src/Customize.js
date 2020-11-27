@@ -20,7 +20,7 @@ class Customize extends React.Component {
           />
         );
       });
-
+      
       return (
         <fieldset className="feature" key={featureHash}>
           <legend className="feature__name">
