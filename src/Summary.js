@@ -1,6 +1,7 @@
 import React from 'react';
 import CurrencyFormatter from './CurrencyFormatter';
 import Option from './Option';
+import Total from './Total';
 
 class Summary extends React.Component {
   render() {
@@ -18,21 +19,16 @@ class Summary extends React.Component {
       );
     });
 
-    const total = Object.keys(this.props.selected).reduce(
-      (acc, curr) => acc + this.props.selected[curr].cost,
-      0
-    );
+
 
     return (
       <section className="main__summary">
         <h2>Your cart</h2>
         {summary}
-        <div className="summary__total">
-          <div className="summary__total__label">Total</div>
-          <div className="summary__total__value">
-            <CurrencyFormatter amount={total} />
-          </div>
-        </div>
+        <Total 
+          currency={this.props.currency}
+          selected={this.props.selected}
+        />
       </section>
     );
   }
