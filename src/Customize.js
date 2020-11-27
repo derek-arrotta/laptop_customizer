@@ -2,6 +2,7 @@ import React from 'react';
 import CurrencyFormatter from './CurrencyFormatter';
 import slugify from 'slugify';
 import Features from './Features';
+import CustomOption from './CustomOption'
 
 class Customize extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class Customize extends React.Component {
         );
       });
       
+      console.log(feature);
       return (
         <fieldset className="feature" key={featureHash}>
           <legend className="feature__name">
@@ -31,11 +33,11 @@ class Customize extends React.Component {
       );
     });
 
+    console.log(features);
     return (
-      <form className="main__form">
-        <h2>Customize your laptop</h2>
-        {features}
-      </form>
+      <CustomOption 
+        features={features}
+      />
     );
   }
 }
