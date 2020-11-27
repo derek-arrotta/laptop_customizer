@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import CurrencyFormatter from './CurrencyFormatter';
 
-const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-});
+//const USCurrencyFormat = new Intl.NumberFormat('en-US', {
+//  style: 'currency',
+//  currency: 'USD',
+//});
 
 class Summary extends Component {
   render() {
@@ -16,7 +17,7 @@ class Summary extends Component {
           <div className="summary__option__label">{feature} </div>
           <div className="summary__option__value">{selectedOption.name}</div>
           <div className="summary__option__cost">
-            {USCurrencyFormat.format(selectedOption.cost)}
+            <CurrencyFormatter amount={selectedOption.cost}/>
           </div>
         </div>
       );
