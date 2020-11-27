@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Feature extends React.Component {
+class Features extends React.Component {
   render() {
     return (
       <div key={this.props.itemHash} className="feature__item">
@@ -20,4 +20,4 @@ class Feature extends React.Component {
   }
 }
 
-export default Feature;
+export default Features;
