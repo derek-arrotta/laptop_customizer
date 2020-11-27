@@ -6,14 +6,6 @@ import Summary from './Summary';
 import Features from './Features';
 import Total from './Total';
 
-// This object will allow us to
-// easily convert numbers into US dollar values
-/*
-const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-});
-*/
 
 class App extends Component {
   state = {
@@ -38,15 +30,13 @@ class App extends Component {
   };
 
   updateFeature = (feature, newValue) => {
-    const selected = Object.assign({}, this.props.selected);
+    const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
-    //console.log(selected[feature]);
     this.setState({
       selected,
     });
   };
 
-//onChange={(e) => this.updateFeature(feature, item)}
   render() {
 
     // Main App Section (leave here)
@@ -65,7 +55,8 @@ class App extends Component {
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
-            <Summary 
+            <Summary
+              features={this.props.features} 
               selected={this.state.selected} />
             <div className="summary__total">
               <div className="summary__total__label">Total</div>
